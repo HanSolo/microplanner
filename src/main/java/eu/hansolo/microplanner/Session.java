@@ -62,9 +62,8 @@ public class Session {
                                   .append("[");
         speakers.forEach(speaker -> str.append(speaker.toString()).append(","));
         str.setLength(str.length() - 1);
-        str.append("],")
-           .append("[");
-        tags.forEach(tag -> str.append("\"").append(tag).append("\","));
+        str.append("],[");
+        tags.forEach(tag -> str.append("{\"name\":\"").append(tag).append("\"},"));
         str.setLength(str.length() - 1);
         return str.append("}").toString();
     }
