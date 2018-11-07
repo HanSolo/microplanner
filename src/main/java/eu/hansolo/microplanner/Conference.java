@@ -34,14 +34,14 @@ public class Conference {
 
 
     // ******************** Construcors ***************************************
-    public Conference(final String name, final String city, final long startDate, final long endDate) {
+    public Conference(final String name, final String city, final String country, final long startDate, final long endDate) {
         this.name       = name;
         this.organizers = new ArrayList<>();
         this.city       = city;
         this.startDate  = startDate;
         this.endDate    = endDate;
         this.location   = new Location();
-        this.country    = "";
+        this.country    = country;
         this.schedule   = new Schedule();
     }
 
