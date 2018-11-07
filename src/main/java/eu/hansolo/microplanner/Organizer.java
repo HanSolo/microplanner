@@ -16,46 +16,28 @@
 
 package eu.hansolo.microplanner;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-public class Speaker extends Person {
-    private String        bio;
-    private String        photoUrl;
-    private String        mail;
-    private String        phone;
-    private List<Session> sessions;
+public class Organizer extends Person {
+    private String mail;
+    private String phone;
 
 
     // ******************** Constructors **************************************
-    public Speaker(final String name, final String firstName, final Gender gender) {
-        this(name, firstName, gender, "");
+    public Organizer(final String name, final String firstName, final Gender gender) {
+        this(name, firstName, gender, "", "");
     }
-    public Speaker(final String name, final String firstName, final Gender gender, final String bio) {
+    public Organizer(final String name, final String firstName, final Gender gender, final String mail, final String phone) {
         super(name, firstName, gender);
-        this.bio      = bio;
-        this.photoUrl = "";
-        this.mail     = "";
-        this.phone    = "";
-        this.sessions = new ArrayList<>();
+        this.mail  = mail;
+        this.phone = phone;
     }
 
 
     // ******************** Methods *******************************************
-    public String getBio() { return bio; }
-    public void setBio(final String bio) { this.bio = bio; }
-
-    public String getPhotoUrl() { return photoUrl; }
-    public void setPhotoUrl(final String photoUrl) { this.photoUrl = photoUrl; }
-
     public String getMail() { return mail; }
     public void setMail(final String mail) { this.mail = mail; }
 
     public String getPhone() { return phone; }
     public void setPhone(final String phone) { this.phone = phone; }
-
-    public List<Session> getSessions() { return sessions; }
 
     @Override public String toString() {
         return new StringBuilder().append("{")
@@ -63,8 +45,6 @@ public class Speaker extends Person {
                                   .append("\"firstName\":\"").append(getFirstName()).append("\",")
                                   .append("\"gender\":\"").append(getGender().name().toLowerCase()).append("\",")
                                   .append("\"birthDate\":").append(getBirthDateEpochSeconds()).append(",")
-                                  .append("\"bio\":\"").append(bio).append("\",")
-                                  .append("\"photoUrl\":\"").append(photoUrl).append("\",")
                                   .append("\"mail\":\"").append(mail).append("\",")
                                   .append("\"phone\":\"").append(phone).append("\"")
                                   .append("}").toString();

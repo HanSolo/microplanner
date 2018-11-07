@@ -18,32 +18,40 @@ package eu.hansolo.microplanner;
 
 import eu.hansolo.microplanner.location.Location;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Conference {
-    private String   name;
-    private long     startDate;
-    private long     endDate;
-    private String   city;
-    private Location location;
-    private String   country;
-    private Schedule schedule;
+    private String          name;
+    private List<Organizer> organizers;
+    private long            startDate;
+    private long            endDate;
+    private String          city;
+    private Location        location;
+    private String          country;
+    private Schedule        schedule;
 
 
     // ******************** Construcors ***************************************
     public Conference(final String name, final String city, final long startDate, final long endDate) {
-        this.name      = name;
-        this.city      = city;
-        this.startDate = startDate;
-        this.endDate   = endDate;
-        this.location  = new Location();
-        this.country   = "";
-        this.schedule  = new Schedule();
+        this.name       = name;
+        this.organizers = new ArrayList<>();
+        this.city       = city;
+        this.startDate  = startDate;
+        this.endDate    = endDate;
+        this.location   = new Location();
+        this.country    = "";
+        this.schedule   = new Schedule();
     }
 
 
     // ******************** Methods *******************************************
     public String getName() { return name; }
     public void setName(final String name) { this.name = name; }
+
+    public List<Organizer> getOrganizers() { return organizers; }
+    public void setOrganizers(final List<Organizer> organizers) { this.organizers = organizers; }
 
     public long getStartDate() { return startDate; }
     public void setStartDate(final long startDate) {
